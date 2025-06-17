@@ -1,4 +1,3 @@
-#include "features/achordion.h"
 #include QMK_KEYBOARD_H
 
 enum dasbob_layers {
@@ -83,13 +82,21 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         )
 };
 
-bool process_record_user(uint16_t keycode, keyrecord_t* record) {
-  if (!process_achordion(keycode, record)) { return false; }
-  // Your macros ...
+const char chordal_hold_layout[MATRIX_ROWS][MATRIX_COLS] PROGMEM =
+    LAYOUT_split_3x5_3(
+        'L', 'L', 'L', 'L', 'L',  'R', 'R', 'R', 'R', 'R',
+        'L', 'L', 'L', 'L', 'L',  'R', 'R', 'R', 'R', 'R',
+        'L', 'L', 'L', 'L', 'L',  'R', 'R', 'R', 'R', 'R',
+                  'L', 'L', 'L',  'R', 'R', 'R'
+    );
 
-  return true;
-}
+// bool process_record_user(uint16_t keycode, keyrecord_t* record) {
+//   if (!process_achordion(keycode, record)) { return false; }
+//   // Your macros ...
+//
+//   return true;
+// }
 
-void matrix_scan_user(void) {
-  achordion_task();
-}
+// void matrix_scan_user(void) {
+//   achordion_task();
+// }

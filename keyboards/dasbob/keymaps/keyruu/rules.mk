@@ -1,8 +1,6 @@
 # Bootloader selection
 BOOTLOADER = rp2040
 
-SRC += features/achordion.c
-
 # Build Options
 #   change yes to no to disable
 #
